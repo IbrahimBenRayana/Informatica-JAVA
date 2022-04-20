@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="549.0" prefWidth="790.0" style="-fx-background-image: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.GestionArticleInterfaceController">
+    <stylesheets>
+        <URL value="@gestionarticleinterface.css" />
+    </stylesheets>
+   <children>
+      <Pane layoutX="-5.0" layoutY="-16.0" prefHeight="99.0" prefWidth="800.0" style="-fx-background-color: #0598ff;">
+         <children>
+            <Text fill="WHITE" layoutX="14.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les articles disponibles ">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <TableView fx:id="articleTable" layoutX="27.0" layoutY="170.0" onMouseClicked="#getSelected" prefHeight="364.0" prefWidth="535.0">
+        <columns>
+            <TableColumn fx:id="id" minWidth="0.0" prefWidth="0.0" text="id" />
+            <TableColumn fx:id="titreArticle" minWidth="0.0" prefWidth="241.0" text="Titre article" />
+            <TableColumn fx:id="desc" minWidth="0.0" prefWidth="147.0" text="Description" />
+            <TableColumn fx:id="id" minWidth="0.0" prefWidth="0.0" text="id" />
+        </columns>
+      </TableView>
+      <Text layoutX="200.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text layoutX="-286.0" layoutY="-33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <TextArea fx:id="recherchetxt" layoutX="27.0" layoutY="109.0" prefHeight="43.0" prefWidth="131.0" />
+   </children>
+</AnchorPane>

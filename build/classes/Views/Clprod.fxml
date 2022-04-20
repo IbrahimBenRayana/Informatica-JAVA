@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="557.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.ClprodController">
+    
+   <children>
+      <Pane layoutY="-1.0" prefHeight="63.0" prefWidth="835.0" style="-fx-background-color: #0598ff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Text fill="WHITE" layoutX="19.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion des Produits" wrappingWidth="432.13671875">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Text>
+         </children></Pane>
+      <TableView fx:id="tabprod" layoutX="172.0" layoutY="183.0" onMouseClicked="#getSelected" prefHeight="307.0" prefWidth="626.0">
+        <columns>
+          <TableColumn fx:id="idproduit" maxWidth="111.0" minWidth="0.0" prefWidth="0.0" style="-fx-alignment: center;" text="ID" />
+          <TableColumn fx:id="NomProduit" maxWidth="254.0" prefWidth="169.0" style="-fx-alignment: center;" text="nom" />
+            <TableColumn fx:id="Pprix" maxWidth="258.0" minWidth="0.0" prefWidth="139.0" style="-fx-alignment: center;" text="prix" />
+            <TableColumn fx:id="Gqte" maxWidth="320.0" prefWidth="127.0" style="-fx-alignment: center;" text="qte" />
+            <TableColumn fx:id="Gimage" maxWidth="204.0" minWidth="0.0" prefWidth="0.0" style="-fx-alignment: center;" text="image" />
+            <TableColumn fx:id="Gdescp" maxWidth="260.0" prefWidth="190.0" style="-fx-alignment: center;" text="description" />
+            <TableColumn fx:id="Pusr" maxWidth="174.0" minWidth="0.0" prefWidth="0.0" style="-fx-alignment: center;" text="user" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER" layoutX="602.0" layoutY="-1.0" prefHeight="36.0" prefWidth="37.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="735.0" layoutY="42.0" prefHeight="76.0" prefWidth="100.0" />
+      <HBox layoutX="10.0" layoutY="355.0" prefHeight="46.0" prefWidth="295.0" />
+      <HBox layoutX="14.0" layoutY="271.0" prefHeight="46.0" prefWidth="282.0" />
+      <HBox layoutX="14.0" layoutY="149.0" prefHeight="43.0" prefWidth="282.0" />
+      <HBox layoutX="366.0" layoutY="62.0" prefHeight="34.0" prefWidth="330.0" />
+      <FontAwesomeIconView fill="#455a64" glyphName="PRINT" layoutX="74.0" layoutY="241.0" size="45" styleClass="btn" />
+      <ImageView fitHeight="112.0" fitWidth="120.0" layoutX="35.0" layoutY="159.0" onMouseClicked="#print" pickOnBounds="true" preserveRatio="true" />
+      <Text layoutX="367.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recherche">
+         <font>
+            <Font name="Century Gothic" size="21.0" />
+         </font>
+      </Text>
+      <TextField fx:id="search" layoutX="316.0" layoutY="135.0" onMouseClicked="#rechercheEq" prefHeight="29.0" prefWidth="215.0" />
+      <FontAwesomeIconView fill="#455a64" glyphName="SHOPPING_CART" layoutX="71.0" layoutY="292.0" onMouseClicked="#showPanier" size="45" />
+      <Button layoutX="12.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#addPanier" style="-fx-background-color: #0598ff;" text="ajouter au panier" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <TextField fx:id="usr" layoutX="18.0" layoutY="106.0" opacity="0.0" />
+      <TextField fx:id="idpp" layoutX="18.0" layoutY="415.0" opacity="0.0" />
+      <TextField fx:id="idppp" layoutX="18.0" layoutY="68.0" opacity="0.0" />
+   </children>
+</AnchorPane>

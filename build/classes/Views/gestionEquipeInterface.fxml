@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="431.0" prefWidth="948.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.GestionEquipeInterfaceController">
+    
+   <children>
+      <TableView fx:id="equipeTable" layoutX="344.0" layoutY="111.0" onMouseClicked="#getSelected" prefHeight="307.0" prefWidth="412.0">
+        <columns>
+          <TableColumn fx:id="NomEquipe" maxWidth="273.0" prefWidth="273.0" style="-fx-alignment: center;" text="Nom" />
+            <TableColumn fx:id="ClassementEquipe" maxWidth="234.0" prefWidth="137.0" style="-fx-alignment: center;" text="Points" />
+        </columns>
+      </TableView>
+      <Pane layoutY="-5.0" prefHeight="67.0" prefWidth="948.0" style="-fx-background-color: #0598ff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Text fill="WHITE" layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion des équipes" wrappingWidth="432.13671875">
+         <font>
+            <Font name="Century Gothic Bold" size="32.0" />
+         </font>
+      </Text>
+      <HBox alignment="CENTER" layoutX="602.0" layoutY="-1.0" prefHeight="36.0" prefWidth="37.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="34.0" layoutY="73.0" prefHeight="76.0" prefWidth="100.0">
+         <children>
+            <FontAwesomeIconView fill="#00e676" glyphName="REFRESH" layoutX="10.0" layoutY="65.0" onMouseClicked="#refreshChamp" size="45" styleClass="btn">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView fill="#455a64" glyphName="PRINT" layoutX="62.0" layoutY="65.0" onMouseClicked="#print" size="45" styleClass="btn" />
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="355.0" prefHeight="46.0" prefWidth="295.0">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#addEquipe" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #0598ff;" text="Ajouter" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#updateEquipe" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #0598ff;" text="Modifier" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Century Gothic" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#deleteEquipe" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #0598ff;" text="Supprimer" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Century Gothic" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <HBox layoutX="14.0" layoutY="198.0" prefHeight="36.0" prefWidth="282.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" wrappingWidth="120.13671875">
+               <font>
+                  <Font name="Century Gothic" size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="nomEq" prefHeight="36.0" prefWidth="166.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="14.0" layoutY="254.0" prefHeight="46.0" prefWidth="282.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Points" wrappingWidth="120.13671875">
+               <font>
+                  <Font name="Century Gothic" size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="classementEq" prefHeight="37.0" prefWidth="160.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="17.0" layoutY="149.0" prefHeight="43.0" prefWidth="282.0">
+         <children>
+            <TextField fx:id="idEq" prefHeight="34.0" prefWidth="149.0" visible="false" />
+         </children>
+      </HBox>
+      <HBox layoutX="366.0" layoutY="62.0" prefHeight="34.0" prefWidth="330.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Recherche">
+               <font>
+                  <Font name="Century Gothic" size="21.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="search" prefHeight="29.0" prefWidth="215.0">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="892.0" layoutY="371.0" prefHeight="46.0" prefWidth="42.0">
+         <children>
+            <FontAwesomeIconView fill="#729760" glyphName="GLOBE" layoutX="62.0" layoutY="65.0" onMouseClicked="#widgetCorona" size="45" styleClass="btn" wrappingWidth="29.571430206298828" />
+         </children>
+      </HBox>
+      <HBox layoutX="770.0" layoutY="204.0" prefHeight="59.0" prefWidth="161.0">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#addVictoire" style="-fx-background-color: #2bab22;" text="V" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#addNull" style="-fx-background-color: #455a64;" text="N" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#addDefeat" style="-fx-background-color: #ff0000;" text="D" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
