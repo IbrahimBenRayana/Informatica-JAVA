@@ -1,2 +1,2 @@
-# TuniKoora_Java_App
-Tunikoora project
+# GYM++_Java_App
+GYM++ project
