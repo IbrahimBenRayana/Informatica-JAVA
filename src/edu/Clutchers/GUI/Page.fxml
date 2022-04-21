@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="850.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="edu.Clutchers.GUI.PageController">
+   <children>
+      <Button fx:id="btnRedrec" layoutX="209.0" layoutY="200.0" mnemonicParsing="false" onAction="#Redrec" prefHeight="50.0" prefWidth="204.0" text="Gestion Reclamation">
+         <effect>
+            <Reflection />
+         </effect>
+      </Button>
+      <Button fx:id="btnRedrating" layoutX="425.0" layoutY="200.0" mnemonicParsing="false" onAction="#Redrating" prefHeight="50.0" prefWidth="204.0" text="Gestion Rating">
+         <effect>
+            <Reflection />
+         </effect>
+      </Button>
+      <Button fx:id="btnRetour" layoutX="747.0" layoutY="403.0" mnemonicParsing="false" onAction="#Retour" text="Retour" />
+   </children>
+</AnchorPane>

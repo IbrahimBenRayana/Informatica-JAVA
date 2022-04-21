@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="845.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.Clutchers.GUI.FirstPageController">
+   <children>
+      <Label layoutX="263.0" layoutY="55.0" prefHeight="80.0" prefWidth="512.0" text="Bienvenue dans notre application">
+         <font>
+            <Font name="Arial Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnFront" layoutX="248.0" layoutY="223.0" mnemonicParsing="false" onAction="#Redirectfront" prefHeight="52.0" prefWidth="140.0" text="User" textFill="#971414">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <Reflection />
+         </effect>
+      </Button>
+      <Button fx:id="btnBack" layoutX="449.0" layoutY="223.0" mnemonicParsing="false" onAction="#ReditectBack" prefHeight="52.0" prefWidth="140.0" text="Admin" textFill="#971414">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <Reflection />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>
