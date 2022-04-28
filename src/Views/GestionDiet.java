@@ -6,6 +6,7 @@
 package Views;
 
 import Models.Diet;
+import com.sun.speech.freetts.VoiceManager;
 import controllers.DietService;
 import java.net.URL;
 import java.sql.Connection;
@@ -29,6 +30,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javax.speech.synthesis.Voice;
 import javax.swing.JOptionPane;
 import tools.MaConnexion;
 
@@ -66,6 +68,8 @@ public class GestionDiet implements Initializable {
     private TextArea d_id;
     @FXML
     private TextArea search;
+    @FXML
+    private Button listen;
 
     /**
      * Initializes the controller class.
@@ -123,8 +127,11 @@ public class GestionDiet implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
              //alert.setHeaderText("Succes");
              alert.setContentText("Diet Ajoutée avec succes!");
-                alert.showAndWait();             
+                alert.showAndWait();  
+                //sendSMS sm = new sendSMS();
+                // sm.sendSMS(a);
          }
+
          refresh();
     }
     
@@ -155,10 +162,10 @@ public class GestionDiet implements Initializable {
     }
     @FXML
     private void getEelemnts(MouseEvent event) {
-         Diet clickedArticle = tableDiet.getSelectionModel().getSelectedItem();
-         d_id.setText(String.valueOf(clickedArticle.getId()));
-        d_titre.setText(String.valueOf(clickedArticle.getTitle()));
-        d_content.setText(String.valueOf(clickedArticle.getContent()));
+         Diet clickedDiet = tableDiet.getSelectionModel().getSelectedItem();
+         d_id.setText(String.valueOf(clickedDiet.getId()));
+        d_titre.setText(String.valueOf(clickedDiet.getTitle()));
+        d_content.setText(String.valueOf(clickedDiet.getContent()));
     }
 
     @FXML
@@ -246,6 +253,18 @@ private void search() {
         SortedList<Diet>sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(tableDiet.comparatorProperty());
         tableDiet.setItems(sortedData);
+    }
+
+    @FXML
+    private void VoiceTTS(MouseEvent event) {
+        System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
+        com.sun.speech.freetts.Voice voice = VoiceManager.getInstance().getVoice("kevin16");
+        voice.allocate();
+        float vol = 100;
+        voice.setVolume(vol);
+        String toSpeak1 = null;
+        String content = d_content.getText();
+        voice.speak(content);
     }
     
 }

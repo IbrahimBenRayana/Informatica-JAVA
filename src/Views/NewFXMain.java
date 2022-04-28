@@ -29,7 +29,7 @@ public class NewFXMain extends Application {
         
        //  new dataProviderController().getData("France");
         
-        Parent parent = FXMLLoader.load(getClass().getResource("gestionDiet.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("GestionDiet.fxml"));
          Scene scene = new Scene(parent);
 
         

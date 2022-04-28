@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class MaConnexion {
     
-    public String url="jdbc:mysql://localhost:3306/projet_pidev";
+    public String url="jdbc:mysql://localhost:3306/pro_pidev";
     public String user="root";
     public String pwd="";
     public static MaConnexion cn;
