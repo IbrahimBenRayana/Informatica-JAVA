@@ -15,12 +15,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -52,6 +56,7 @@ public class GestionDiet implements Initializable {
     Connection mc;
     PreparedStatement ste;
     ObservableList<Diet>dietList;
+    ObservableList<Diet>priseMassList;
     @FXML
     private TextArea d_titre;
     @FXML
@@ -70,6 +75,12 @@ public class GestionDiet implements Initializable {
     private TextArea search;
     @FXML
     private Button listen;
+    @FXML
+    private PieChart pieDiet;
+    @FXML
+    private Text lb1;
+    @FXML
+    private Button statBack;
 
     /**
      * Initializes the controller class.
@@ -78,6 +89,32 @@ public class GestionDiet implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         afficherDiet();
+                tableDiet.setVisible(true);
+        search.setVisible(true);
+        lb1.setVisible(true);
+        pieDiet.setVisible(false);
+        statBack.setVisible(false);
+
+       
+             DietService ac = new DietService();
+        ObservableList<PieChart.Data> piecommentData = null;
+        try {
+            piecommentData = FXCollections.observableArrayList(
+                    new PieChart.Data("Prise de masse", ac.countDiet()),
+                    new PieChart.Data("Perte de Masse", ac.countDietLow()));
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionDiet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        piecommentData.forEach(data
+                -> data.nameProperty().bind(
+                        Bindings.concat(
+                                data.getName(), " amount: ", data.pieValueProperty()
+                        )
+                )
+        );
+
+        pieDiet.getData().addAll(piecommentData);
     }    
         void afficherDiet(){
             mc=MaConnexion.getInstance().getCnx();
@@ -262,9 +299,33 @@ private void search() {
         voice.allocate();
         float vol = 100;
         voice.setVolume(vol);
-        String toSpeak1 = null;
-        String content = d_content.getText();
-        voice.speak(content);
+        String voiceContent = d_content.getText();
+        
+        if(voiceContent.isEmpty()){
+            voiceContent="Please select a diet to get it ready to review !";
+        }else{
+            voiceContent = d_content.getText();
+        }
+        voice.speak(voiceContent);
+    }
+
+    @FXML
+    private void statShow(MouseEvent event) {
+        tableDiet.setVisible(false);
+        search.setVisible(false);
+        lb1.setVisible(false);
+        pieDiet.setVisible(true);
+        statBack.setVisible(true);
+    }
+
+    @FXML
+    private void backIndex(MouseEvent event) {
+        tableDiet.setVisible(true);
+        search.setVisible(true);
+        lb1.setVisible(true);
+        pieDiet.setVisible(false);
+        statBack.setVisible(false);
+
     }
     
 }

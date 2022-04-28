@@ -6,12 +6,15 @@
 package controllers;
 
 import Models.Diet;
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import tools.MaConnexion;
 
 /**
@@ -102,6 +105,39 @@ public class DietService {
         }
         return dietList;
     }
-    
+    public int countDiet() throws SQLException {
+        
+                    String requete = "select COUNT(*) from diet where diet_obj='Prise de masse'";
+            Statement st = MaConnexion.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+
+        int s = 0;
+        try {
+            while (rs.next()) {
+                s = Integer.valueOf(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DietService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return s;
+    }
+    public int countDietLow() throws SQLException {
+        
+                    String requete = "select COUNT(*) from diet where diet_obj='Perte de Masse'";
+            Statement st = MaConnexion.getInstance().getCnx()
+                    .createStatement();
+            ResultSet rs =  st.executeQuery(requete);
+
+        int s = 0;
+        try {
+            while (rs.next()) {
+                s = Integer.valueOf(rs.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DietService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return s;
+    }
     
 }

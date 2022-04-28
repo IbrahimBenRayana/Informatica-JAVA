@@ -23,8 +23,8 @@ public class sendSMS {
 
     public static void sendSMS(Diet p) {
         Twilio.init("", "");
-        Message message = Message.creator(new PhoneNumber("+"),
-        new PhoneNumber("+"),
+        Message message = Message.creator(new PhoneNumber(""),
+        new PhoneNumber(""),
         "Hello Sir Your DIET is added you can check it : "+p.getContent()).create();
        
 
